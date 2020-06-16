@@ -1,0 +1,11 @@
+cloud:
+  aws:
+    credentials:
+      instanceProfile: true
+      useDefaultAwsCredentialsChain: true
+      profileName: default
+      profilePath: ${user.home}/.aws/credentials
+    region:
+      static: eu-west-1
+    stack:
+      auto: false
