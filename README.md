@@ -1,6 +1,6 @@
 # Logactaesque Play Fixture
 
-A long running service which:
+A long running service that:
 * Consumes messages from an AWS SQS _play-fixture_ queue
 * Extracts teams and associated dice from the payload
 * Rolls corresponding dice using a service based upon [Logactaesque Dice Roller](https://github.com/logactaesque/dice-roller)
