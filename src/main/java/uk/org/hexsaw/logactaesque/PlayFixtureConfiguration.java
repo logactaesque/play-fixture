@@ -7,7 +7,6 @@ import com.amazonaws.services.sqs.AmazonSQSAsyncClientBuilder;
 import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class PlayFixtureConfiguration {

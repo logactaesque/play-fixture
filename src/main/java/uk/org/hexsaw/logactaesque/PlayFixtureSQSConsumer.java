@@ -19,7 +19,7 @@ public class PlayFixtureSQSConsumer {
 
     @SqsListener("play-fixture")  // This queue subscribes to SNS topic 'fixture-started'
     public void receiveMessage(String message) {
-        LOGGER.info(message);
+        LOGGER.info("Message received : [{}]", message);
     }
     
 }
