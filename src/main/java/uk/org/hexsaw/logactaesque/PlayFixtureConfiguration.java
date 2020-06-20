@@ -42,7 +42,7 @@ public class PlayFixtureConfiguration {
         simpleMessageListenerContainer.setTaskExecutor(threadPoolTaskExecutor());
         return simpleMessageListenerContainer;
     }
-    
+
     @Bean
     public QueueMessageHandler queueMessageHandler() {
         QueueMessageHandlerFactory queueMessageHandlerFactory = new QueueMessageHandlerFactory();
