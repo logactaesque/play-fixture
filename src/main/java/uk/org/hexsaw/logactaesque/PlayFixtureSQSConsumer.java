@@ -9,6 +9,7 @@ import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import uk.org.hexsaw.logactaesque.model.Fixture;
+import uk.org.hexsaw.logactaesque.model.FixtureResult;
 
 import java.io.IOException;
 
@@ -27,11 +28,14 @@ public class PlayFixtureSQSConsumer {
     public void receiveMessage(String message) {
         try {
             Fixture fixture = objectMapper.readValue(message, Fixture.class);
-            LOGGER.info("Message received : [{}]", fixture);
+            LOGGER.info("Played fixture : [{}]", playFixture(fixture));
         } catch(IOException e) {
             LOGGER.error("Error processing message [{}] \n {}", message, e.getMessage());
         }
+    }
 
+    public FixtureResult playFixture(Fixture fixture) {
+        return new FixtureResult(fixture);
     }
 
 }
