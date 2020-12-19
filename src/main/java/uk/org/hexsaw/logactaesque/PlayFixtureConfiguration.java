@@ -1,6 +1,5 @@
 package uk.org.hexsaw.logactaesque;
 
-import com.amazonaws.auth.InstanceProfileCredentialsProvider;
 import com.amazonaws.services.sqs.AmazonSQSAsync;
 import com.amazonaws.services.sqs.AmazonSQSAsyncClientBuilder;
 
@@ -12,7 +11,6 @@ import org.springframework.cloud.aws.messaging.listener.SimpleMessageListenerCon
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @Configuration
@@ -21,10 +19,7 @@ public class PlayFixtureConfiguration {
     @Bean
     @Primary
     public AmazonSQSAsync sqsClient() {
-        InstanceProfileCredentialsProvider provider
-                = new InstanceProfileCredentialsProvider(true);
-        return AmazonSQSAsyncClientBuilder.standard()
-                .build();
+        return AmazonSQSAsyncClientBuilder.standard().build();
     }
 
     @Bean
@@ -47,8 +42,7 @@ public class PlayFixtureConfiguration {
     public QueueMessageHandler queueMessageHandler() {
         QueueMessageHandlerFactory queueMessageHandlerFactory = new QueueMessageHandlerFactory();
         queueMessageHandlerFactory.setAmazonSqs(sqsClient());
-        QueueMessageHandler queueMessageHandler = queueMessageHandlerFactory.createQueueMessageHandler();
-        return queueMessageHandler;
+        return queueMessageHandlerFactory.createQueueMessageHandler();
     }
 
     @Bean

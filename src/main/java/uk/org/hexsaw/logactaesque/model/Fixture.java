@@ -1,17 +1,23 @@
 package uk.org.hexsaw.logactaesque.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
 public class Fixture {
 
     private UUID fixtureId;
-    private Date raisedAt;
+    private Date when;
     private String venue;
     private String tournament;
 
-    private Team homeTeam = new Team();
-    private Team awayTeam = new Team();
+    private Team homeTeam;
+    private Team awayTeam;
+
+    
+    public Fixture() {
+    }
+
 
     public UUID getFixtureId() {
         return fixtureId;
@@ -21,12 +27,12 @@ public class Fixture {
         this.fixtureId = fixtureId;
     }
 
-    public Date getRaisedAt() {
-        return raisedAt;
+    public Date getWhen() {
+        return when;
     }
 
-    public void setRaisedAt(Date raisedAt) {
-        this.raisedAt = raisedAt;
+    public void setWhen(Date when) {
+        this.when = when;
     }
 
     public String getVenue() {
@@ -62,16 +68,14 @@ public class Fixture {
         this.awayTeam = awayTeam;
     }
 
-
     @Override
     public String toString() {
-        return "Fixture{" +
-                "fixtureId=" + fixtureId +
-                ", raisedAt=" + raisedAt +
-                ", venue='" + venue + '\'' +
-                ", tournament='" + tournament + '\'' +
-                ", homeTeam=" + homeTeam +
-                ", awayTeam=" + awayTeam +
-                '}';
+        return "Fixture [awayTeam=" + awayTeam + ", fixtureId=" + fixtureId + ", homeTeam=" + homeTeam + ", when="
+                + when + ", tournament=" + tournament + ", venue=" + venue + "]";
     }
+
+   
+
+
+
 }

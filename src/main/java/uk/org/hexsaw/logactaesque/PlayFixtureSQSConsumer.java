@@ -18,8 +18,8 @@ public class PlayFixtureSQSConsumer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PlayFixtureSQSConsumer.class);
 
-    @Autowired
-    private QueueMessagingTemplate queueMessagingTemplate;
+    // @Autowired
+    // private QueueMessagingTemplate queueMessagingTemplate;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
